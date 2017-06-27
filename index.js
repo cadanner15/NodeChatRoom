@@ -20,6 +20,6 @@ app.use(express.static("public"));
 
 
 //Tell the server where it should run on the host
-http.listen(process.env.PORT || 3000, function(){
+http.listen(process.env.PORT || cd3000, function(){
 	console.log("listening on *:3000");
 });
