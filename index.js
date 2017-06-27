@@ -17,9 +17,13 @@ app.get("/", function(req, res){
 //Use express to serve up static files(css, js, other htmls besides index) so that our page can be pretty
 app.use(express.static("public"));
 
-
+io.on("connection",function(socket){
+	socket.on("chat message", function(msg){
+		io.emit("chat message", msg);
+	})
+})
 
 //Tell the server where it should run on the host
-http.listen(process.env.PORT || cd3000, function(){
+http.listen(process.env.PORT || 3000, function(){
 	console.log("listening on *:3000");
 });
